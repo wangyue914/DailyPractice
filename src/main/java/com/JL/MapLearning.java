@@ -1,5 +1,5 @@
 /**
- * MapÊä³öµÄ±ê×¼²Ù×÷Á÷³Ì
+ * Mapè¾“å‡ºçš„æ ‡å‡†æ“ä½œæµç¨‹
  */
 package com.JL;
 
@@ -19,10 +19,8 @@ public class MapLearning {
 		map.put("bq","zhao");
 		map.put("cw", "sun");
 		
-		//Ö¸¶¨Set¼¯ºÏµÄÀàĞÍ²¢½«ÆäÓÃMap½Ó¿ÚÊµÀı»¯£¬¼´½«Map½Ó¿Ú±äÎªSet
 		Set<Map.Entry<String, String>> allset=map.entrySet();
 		
-		//ÊµÀı»¯Iterator¶ÔÏó£¬ÓÃÓÚÏÂÃæµÄµü´úÊä³ö
 		Iterator<Map.Entry<String,String>> ite=allset.iterator();
 		while(ite.hasNext()){
 			

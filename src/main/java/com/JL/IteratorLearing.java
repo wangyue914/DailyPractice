@@ -1,5 +1,5 @@
 /**
- * Ê¹ÓÃIteratorµü´úÊä³ö¼¯ºÏÖĞµÄÄÚÈİ£¬Ö»ÒªÅöµ½¼¯ºÏ¼¯ºÏµÄÊä³ö²Ù×÷¾ÍÒªÓÃIteretor½Ó¿Ú
+ * ä½¿ç”¨Iteratorè¿­ä»£è¾“å‡ºé›†åˆä¸­çš„å†…å®¹ï¼Œåªè¦ç¢°åˆ°é›†åˆé›†åˆçš„è¾“å‡ºæ“ä½œå°±è¦ç”¨Iteretoræ¥å£
  */
 package com.JL;
 
@@ -19,34 +19,30 @@ public class IteratorLearing {
 		arr.add("world");
 		arr.add("!");
 		
-		//µ¥Ïòµü´úÊä³ö£¬´ÓÇ°Íùºó
 		/*Iterator<String> ite1=arr.iterator();
 		while(ite1.hasNext()){
 			System.out.print(ite1.next()+" ");
 		}
 		
 		System.out.println(" ");
-		//Ë«Ïòµü´úÊä³ö
-		ListIterator <String> ite2 =arr.listIterator();  
+		ListIterator <String> ite2 =arr.listIterator();
 		while(ite2.hasNext()){
 			System.out.print(ite2.next()+" ");
 		}
 		System.out.println(" ");
 		
-		//×¢Òâ£¬´ÓºóÍùÇ°Êä³öÊ±±ØĞëÏÈ´ÓÇ°ÍùºóÊä³ö
 		while(ite2.hasPrevious()){
 			System.out.print(ite2.previous()+" ");
 		}
 		System.out.println(" ");
 		
-		//Ê¹ÓÃforeachÊä³ö
+		//Ê¹ï¿½ï¿½foreachï¿½ï¿½ï¿½
 		for(String str : arr){
 			System.out.print(str+" ");
 		}
 		*/
 		
 		
-		//¹ØÓÚmapµÄÊä³ö,×¢Òâ£ºHashmap²»±£Ö¤Ó³ÉäµÄË³Ğò
 		Map<String, String> map=new HashMap<String,String>();
 		map.put("qwe", "QQQ");
 		map.put("fdg", "www");
@@ -54,7 +50,6 @@ public class IteratorLearing {
 		
 		Set<String> keys=map.keySet();
 		
-		//Êä³öÈ«²¿keyÖµ
 		Iterator<String> ite1=keys.iterator();
 		while(ite1.hasNext()){
 			String str=ite1.next();
@@ -63,7 +58,6 @@ public class IteratorLearing {
 		}
 		System.out.println();
 		
-		//Êä³öÈ«²¿value
 		Collection<String> val=map.values();
 		Iterator<String> ite2=val.iterator();
 		while(ite2.hasNext()){
@@ -71,7 +65,6 @@ public class IteratorLearing {
 		}
 		System.out.println();
 		
-		//IteratorÊä³ömap
 		Set<Map.Entry<String , String>> allset=map.entrySet();
 		Iterator<Map.Entry<String, String>> ite3=allset.iterator();
 		while(ite3.hasNext()){
@@ -80,7 +73,6 @@ public class IteratorLearing {
 		}
 		System.out.println();
 		
-		//foreachÊä³ömap
 		for(Map.Entry<String, String> me2:map.entrySet()){
 			System.out.print(me2.getKey()+"->"+me2.getValue()+" ");
 		}

@@ -1,6 +1,5 @@
 package com.LeetCode.array;
 
-import com.sun.xml.internal.fastinfoset.util.CharArrayArray;
 
 import java.util.ArrayList;
 import java.util.List;

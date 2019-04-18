@@ -1,11 +1,11 @@
 /**
- * ÊµÏÖSStudentÀà£¬²¢ÄÜ¹»½øĞĞÅÅĞò
+ * å®ç°SStudentç±»ï¼Œå¹¶èƒ½å¤Ÿè¿›è¡Œæ’åº
  */
 package com.JL;
 
 import java.util.*;
 
-class SStudent implements Comparable<SStudent>{		//ÊµÏÖComparable½Ó¿Ú·½±ãÅÅĞò
+class SStudent implements Comparable<SStudent>{
 	
 	int id;
 	String name;
@@ -32,7 +32,6 @@ class SStudent implements Comparable<SStudent>{		//ÊµÏÖComparable½Ó¿Ú·½±ãÅÅĞò
 		return name;
 	}
 	
-	//¸²Ğ´compareTo·½·¨
 	public int compareTo(SStudent s){
 		
 		if(this.id>s.getId()){
@@ -83,7 +82,6 @@ public class DemoFor13 {
 			System.out.print(temp.getId()+temp.getName()+temp.getScore()+"\n");
 		}
 		
-		//¶ÔstuÖĞµÄËùÓĞSStudent¶ÔÏó½øĞĞÅÅĞò
 		Collections.sort(stu);
 		
 		ite=stu.iterator();

@@ -1,5 +1,5 @@
 /**
- * ×Ö½ÚÁ÷²Ù×÷
+ * å­—èŠ‚æµæ“ä½œ
  */
 package com.JL;
 
@@ -19,7 +19,7 @@ public class ByteIO {
 		
 		OutputStream out=null;
 		out=new FileOutputStream(f,true);
-		//out=new FileOutputStream(f,true);   //¼ÓÈëtrue²ÎÊı±íÃ÷ÔÊĞíÔÚºóÃæ½øĞĞÌí¼Ó
+		//out=new FileOutputStream(f,true);   //åŠ å…¥trueå‚æ•°è¡¨æ˜å…è®¸åœ¨åé¢è¿›è¡Œæ·»åŠ 
 		
 		
 		String str="Hello World!";

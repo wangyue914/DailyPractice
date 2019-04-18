@@ -16,25 +16,25 @@ public class DemoXML {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		//1.½¨Á¢factoryÓÃÓÚÈ¡µÃbuilder
+
+		//1.å»ºç«‹factoryç”¨äºå–å¾—builder
 		DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-		
-		//2.Í¨¹ıDocumenrBuilderFactoryÈ¡µÃDocumentBuilder
+
+		//2.é€šè¿‡DocumenrBuilderFactoryå–å¾—DocumentBuilder
 		DocumentBuilder builder=null;
-		
+
 		try {
 			builder=factory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//3.¶¨ÒåDocument½Ó¿Ú¶ÔÏó£¬Í¨¹ıDocumentÀà½øĞĞDOMÊ÷µÄ×ª»»²Ù×÷
+
+		//3.å®šä¹‰Documentæ¥å£å¯¹è±¡ï¼Œé€šè¿‡Documentç±»è¿›è¡ŒDOMæ ‘çš„è½¬æ¢æ“ä½œ
 		Document doc=null;
-		
+
 		try {
-			//¶ÁÈ¡Ö¸¶¨Î»ÖÃxmlÎÄ¼ş
+			//è¯»å–æŒ‡å®šä½ç½®xmlæ–‡ä»¶
 			doc=builder.parse("E:"+File.pathSeparator+"demo.xml");
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
@@ -43,13 +43,13 @@ public class DemoXML {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//4.²éÕÒname½Úµã
+
+		//4.æŸ¥æ‰¾nameèŠ‚ç‚¹
 		NodeList nl=doc.getElementsByTagName("name");
-		
-		//5.Êä³öµÚÒ»¸ö×Ó½ÚµãÖĞÎÄ±¾½ÚµãµÄÄÚÈİ
-		//item()¸ù¾İË÷Òı²éÕÒ½ÚµãÎ»ÖÃ
-		System.out.println("ĞÕÃû£º"+nl.item(0).getFirstChild().getNodeValue());
+
+		//5.è¾“å‡ºç¬¬ä¸€ä¸ªå­èŠ‚ç‚¹ä¸­æ–‡æœ¬èŠ‚ç‚¹çš„å†…å®¹
+		//item()æ ¹æ®ç´¢å¼•æŸ¥æ‰¾èŠ‚ç‚¹ä½ç½®
+		System.out.println("å§“åï¼š"+nl.item(0).getFirstChild().getNodeValue());
 
 	}
 

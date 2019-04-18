@@ -1,6 +1,5 @@
 /**
- * ÊµÏÖ¶àÏß³ÌÓĞÁ½ÖÖ·½·¨£¬Ò»ÖÖÊÇ¼Ì³ĞThreadÀà(¸²Ğ´runº¯Êı)£¬
- * ÁíÒ»ÖÖÊÇÊµÏÖRunnable½Ó¿Ú³Ğ
+ *
  */
 package com.JL;
 
@@ -11,7 +10,7 @@ class MyThread extends Thread{
 	}
 	public void run(){
 		for(int i=0;i<10;i++){
-			System.out.println(name+"ÔËĞĞ"+"i="+i);
+			System.out.println(name+"thread"+"i="+i);
 		}
 	}
 	
@@ -33,10 +32,10 @@ class MyThread3 implements Runnable{
 	private int ticket=5;
 	public void run(){
 		for(int i=0;i<100;i++){
-			//Ê¹ÓÃsynchronized¹Ø¼ü×ÖÍ¬²½´úÂë¿é£¬±£Ö¤Ò»¸öÊ±¼ä¶ÎÖ»ÓĞÒ»¸öÏß³ÌÔËĞĞ
+			//ä½¿ç”¨synchronizedå…³é”®å­—åŒæ­¥ä»£ç å—ï¼Œä¿è¯ä¸€ä¸ªæ—¶é—´æ®µåªæœ‰ä¸€ä¸ªçº¿ç¨‹è¿è¡Œ
 			synchronized(this){
 			if(ticket>0){
-				System.out.println("Ê£Óà"+ticket+"ÕÅÆ±");
+				System.out.println("thread"+ticket+"ticket");
 				ticket--;
 			}
 			}
@@ -52,22 +51,19 @@ public class ThreadLearning {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*MyThread mt1=new MyThread("Ïß³Ì1");
-		MyThread mt2=new MyThread("Ïß³Ì2");
-		mt1.start();     //´Ë´¦Í¨¹ıstart·½·¨Æô¶¯Ïß³Ì¡£
+		/*MyThread mt1=new MyThread("thread1");
+		MyThread mt2=new MyThread("thread2");
+		mt1.start();
 		mt2.start();*/
 		
-		MyThread2 mt1=new MyThread2("Ïß³Ìa");
-		MyThread2 mt2=new MyThread2("Ïß³Ìb");
+		MyThread2 mt1=new MyThread2("t1");
+		MyThread2 mt2=new MyThread2("t2");
 		
-		//ÊµÏÖRunnable½Ó¿Úºó³öÏÖÕâÑùÒ»¸öÎÊÌâ£ºÔõÑùÆô¶¯Ïß³Ì
-		//ThreadÀàÖĞÌá¹©ÁËÁ½¸ö¹¹Ôìº¯ÊıÓÃÒÔ½ÓÊÕRunnable×ÓÀàÀ´ÊµÀı»¯¶ÔÏó£¬´Ó¶ø¿ÉÒÔÊ¹ÓÃThreadÖĞµÄstart·½·¨
 		/*Thread t1=new Thread(mt1);
 		Thread t2=new Thread(mt2);
 		t1.start();
 		t2.start();*/
 		
-		//¸ÃÀı×ÓËµÃ÷ËäÈ»
 		MyThread3 mt3=new MyThread3();
 		Thread t3=new Thread(mt3);
 		Thread t4=new Thread(mt3);

@@ -19,7 +19,7 @@ public class BufferReader {
 		buf=new BufferedReader(new InputStreamReader(System.in));
 		
 		String str=null;
-		System.out.println("ÇëÊäÈëÄÚÈİ");
+		System.out.println("è¯·è¾“å…¥å†…å®¹");
 		
 		try {
 			str=buf.readLine();
@@ -28,7 +28,7 @@ public class BufferReader {
 			e.printStackTrace();
 		}
 		
-		System.out.println("ÊäÈëµÄÄÚÈİÎª"+str);
+		System.out.println("è¾“å…¥å†…å®¹ä¸º"+str);
 
 	}
 
