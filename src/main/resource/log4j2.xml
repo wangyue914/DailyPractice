@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="practice">
+    <Properties>
+        <Property name="log.dir">../log</Property>
+
+        <Property name="normal.schema">practice-normal</Property>
+        <Property name="normal.schema.version">1</Property>
+        <Property name="normal.schema.patternLayout">%d{yyyy-MM-dd HH:mm:ss} %p ${normal.schema} ${normal.schema.version} %t %l -- %m%n</Property>
+
+        <Property name="tcp.request.schema">practice-tcp-request</Property>
+        <Property name="tcp.request.schema.version">1</Property>
+        <Property name="tcp.request.schema.patternLayout">%d{yyyy-MM-dd HH:mm:ss} %p ${tcp.request.schema} ${tcp.request.schema.version} %t %l %X{requestId} %X{requestCode} %X{peerAddress} %X{requestNumber} %X{request} -- %m%n</Property>
+
+        <Property name="tcp.response.schema">practice-tcp-response</Property>
+        <Property name="tcp.response.schema.version">1</Property>
+        <Property name="tcp.response.schema.patternLayout">%d{yyyy-MM-dd HH:mm:ss} %p ${tcp.response.schema} ${tcp.response.schema.version} %t %l %X{requestId} %X{responseCode} %X{peerAddress} %X{requestNumber} %X{response} -- %m%n</Property>
+
+        <Property name="http.request.schema">practice-http-request</Property>
+        <Property name="http.request.schema.version">1</Property>
+        <Property name="http.request.schema.patternLayout">%d{yyyy-MM-dd HH:mm:ss} %p ${http.request.schema} ${http.request.schema.version} %t %l %X{requestId} %X{httpMethod} %X{requestPath} %X{peerAddress} %X{xForwardFor} %X{request} -- %m%n</Property>
+
+        <Property name="http.response.schema">practice-http-response</Property>
+        <Property name="http.response.schema.version">1</Property>
+        <Property name="http.response.schema.patternLayout">%d{yyyy-MM-dd HH:mm:ss} %p ${http.response.schema} ${http.response.schema.version} %t %l %X{requestId} %X{responseCode} %X{peerAddress} %X{response} -- %m%n</Property>
+
+        <Property name="event.schema">practice-event</Property>
+        <Property name="event.schema.version">1</Property>
+        <Property name="event.schema.patternLayout">%d{yyyy-MM-dd HH:mm:ss} %p ${event.schema} ${event.schema.version} %t %l %X{eventSource} %X{eventType} %X{eventValue} -- %m%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8">
+                <MarkerPatternSelector defaultPattern="${normal.schema.patternLayout}">
+                    <PatternMatch key="${tcp.request.schema}" pattern="${tcp.request.schema.patternLayout}"/>
+                    <PatternMatch key="${tcp.response.schema}" pattern="${tcp.response.schema.patternLayout}"/>
+                    <PatternMatch key="${http.request.schema}" pattern="${http.request.schema.patternLayout}"/>
+                    <PatternMatch key="${http.response.schema}" pattern="${http.response.schema.patternLayout}"/>
+                    <PatternMatch key="${event.schema}" pattern="${event.schema.patternLayout}"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="D" fileName="${log.dir}/debug.log" filePattern="${log.dir}/debug.log.%d{yyyy-MM-dd}" append="true">
+            <Filters>
+                <ThresholdFilter level="DEBUG"/>
+            </Filters>
+            <PatternLayout charset="UTF-8">
+                <MarkerPatternSelector defaultPattern="${normal.schema.patternLayout}">
+                    <PatternMatch key="${tcp.request.schema}" pattern="${tcp.request.schema.patternLayout}"/>
+                    <PatternMatch key="${tcp.response.schema}" pattern="${tcp.response.schema.patternLayout}"/>
+                    <PatternMatch key="${http.request.schema}" pattern="${http.request.schema.patternLayout}"/>
+                    <PatternMatch key="${http.response.schema}" pattern="${http.response.schema.patternLayout}"/>
+                    <PatternMatch key="${event.schema}" pattern="${event.schema.patternLayout}"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="I" fileName="${log.dir}/info.log" filePattern="${log.dir}/info.log.%d{yyyy-MM-dd}" append="true">
+            <Filters>
+                <ThresholdFilter level="INFO"/>
+            </Filters>
+            <PatternLayout charset="UTF-8">
+                <MarkerPatternSelector defaultPattern="${normal.schema.patternLayout}">
+                    <PatternMatch key="${tcp.request.schema}" pattern="${tcp.request.schema.patternLayout}"/>
+                    <PatternMatch key="${tcp.response.schema}" pattern="${tcp.response.schema.patternLayout}"/>
+                    <PatternMatch key="${http.request.schema}" pattern="${http.request.schema.patternLayout}"/>
+                    <PatternMatch key="${http.response.schema}" pattern="${http.response.schema.patternLayout}"/>
+                    <PatternMatch key="${event.schema}" pattern="${event.schema.patternLayout}"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+        </RollingFile>
+        <RollingFile name="W" fileName="${log.dir}/warn.log" filePattern="${log.dir}/warn.log.%d{yyyy-MM-dd}" append="true">
+            <Filters>
+                <ThresholdFilter level="WARN"/>
+            </Filters>
+            <PatternLayout charset="UTF-8">
+                <MarkerPatternSelector defaultPattern="${normal.schema.patternLayout}">
+                    <PatternMatch key="${tcp.request.schema}" pattern="${tcp.request.schema.patternLayout}"/>
+                    <PatternMatch key="${tcp.response.schema}" pattern="${tcp.response.schema.patternLayout}"/>
+                    <PatternMatch key="${http.request.schema}" pattern="${http.request.schema.patternLayout}"/>
+                    <PatternMatch key="${http.response.schema}" pattern="${http.response.schema.patternLayout}"/>
+                    <PatternMatch key="${event.schema}" pattern="${event.schema.patternLayout}"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="E" fileName="${log.dir}/error.log" filePattern="${log.dir}/error.log.%d{yyyy-MM-dd}" append="true">
+            <Filters>
+                <ThresholdFilter level="ERROR"/>
+            </Filters>
+            <PatternLayout charset="UTF-8">
+                <MarkerPatternSelector defaultPattern="${normal.schema.patternLayout}">
+                    <PatternMatch key="${tcp.request.schema}" pattern="${tcp.request.schema.patternLayout}"/>
+                    <PatternMatch key="${tcp.response.schema}" pattern="${tcp.response.schema.patternLayout}"/>
+                    <PatternMatch key="${http.request.schema}" pattern="${http.request.schema.patternLayout}"/>
+                    <PatternMatch key="${http.response.schema}" pattern="${http.response.schema.patternLayout}"/>
+                    <PatternMatch key="${event.schema}" pattern="${event.schema.patternLayout}"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="D"/>
+            <AppenderRef ref="E"/>
+            <AppenderRef ref="W"/>
+            <AppenderRef ref="I"/>
+        </Root>
+            <Logger name="org.apache.kafka.clients.consumer.internals" level="info"/>
+            <Logger name="com.jayway.jsonpath.internal" level="info"/>
+    </Loggers>
+</Configuration>

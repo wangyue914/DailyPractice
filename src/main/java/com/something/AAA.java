@@ -15,10 +15,10 @@ public class AAA {
         });
         System.out.println("f1= "+f1.get());
 
-        /*CompletableFuture<Integer> f2 = f1.thenApply(new Function<String, Integer>() {
+        /*CompletableFuture<Integer> f2 = f1.thenApply(new Function<aboutstring, Integer>() {
 
             @Override
-            public Integer apply(String t) {
+            public Integer apply(aboutstring t) {
                 System.out.println(2);
                 return Integer.valueOf(t.length());
             }
