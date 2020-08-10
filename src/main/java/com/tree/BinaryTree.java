@@ -1,6 +1,7 @@
 package com.tree;
 
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -58,28 +59,26 @@ public class BinaryTree {
 
     //后续遍历
     public static void printPa(BinaryTreeNode root){
-        if(root==null){
+        if (root == null) {
             return;
         }
-        BinaryTreeNode pre=root;
-        Stack<BinaryTreeNode> stack=new Stack<>();
-        while(root!=null){
-            while(root.left!=null){
+        BinaryTreeNode pre = root;
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
                 stack.push(root);
-                root=root.left;
+                root = root.left;
             }
+            root = stack.peek();
 
-            while(root!=null&&(root.right==null||root.right==pre)){
-                System.out.print(root.data+" ");
-                pre=root;
-                if(stack.isEmpty()){
-                    return;
-                }
-                root=stack.pop();
+            if (root.right == null || root.right == pre) {
+                System.out.println(root.data);
+                stack.pop();
+                pre = root;
+                root = null;
+            } else {
+                root = root.right;
             }
-
-            stack.push(root);
-            root=root.right;
         }
     }
 
@@ -151,6 +150,115 @@ public class BinaryTree {
         root.right=new BinaryTreeNode(3);
         root.left.left=new BinaryTreeNode(4);
         root.left.right=new BinaryTreeNode(5);
-        printLine(root);
+        aroundOrder(root);
+
+
+
     }
+
+    public static void pre (BinaryTreeNode root) {
+
+        if (root == null) {
+            return;
+        }
+        Stack<BinaryTreeNode> stack = new Stack<>();
+
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                System.out.println(root.data);
+                stack.push(root);
+                root = root.left;
+            }
+            if (!stack.isEmpty()) {
+                root = stack.pop();
+                root = root.right;
+            }
+        }
+    }
+
+    public static void inorder(BinaryTreeNode root)  {
+        if (root == null) {
+            return;
+        }
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            if (!stack.isEmpty()) {
+                 root = stack.pop();
+                System.out.println(root.data);
+                root = root.right;
+            }
+        }
+    }
+
+    public static void backorder(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        BinaryTreeNode pre = root;
+
+
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.peek();
+
+            if (root.right == null || root.right == pre) {
+                System.out.println(root.data);
+                stack.pop();
+                pre = root;
+                root = null;
+            } else {
+                root = root.right;
+            }
+        }
+    }
+
+    public static void aroundOrder(BinaryTreeNode root) {
+
+        if (root == null) {
+            return;
+        }
+        Queue<BinaryTreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            root = queue.poll();
+            System.out.println(root.data);
+            if (root.left != null) {
+                queue.add(root.left);
+            }
+            if (root.right != null) {
+                queue.add(root.right);
+            }
+        }
+
+    }
+
+    public static BinaryTreeNode las(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {
+
+        if (root == null) {
+            return null;
+        }
+        if (root == p || root == q) {
+            return root;
+        }
+
+        BinaryTreeNode left = las(root.left, p, q);
+        BinaryTreeNode right = las(root.right, p, q);
+
+        if (left != null && right != null) {
+            return root;
+        }
+
+        return left == null ? right : left;
+    }
+
+
+
 }

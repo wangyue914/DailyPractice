@@ -5,7 +5,7 @@
  */
 package com.sword2offer.test3;
 
-import java.util.*;
+import java.util.ArrayList;
 
 
 public class test28 {

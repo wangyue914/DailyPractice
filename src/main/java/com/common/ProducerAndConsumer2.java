@@ -1,6 +1,6 @@
 package com.common;
 
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**

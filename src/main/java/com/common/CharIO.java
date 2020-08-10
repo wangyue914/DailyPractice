@@ -3,7 +3,9 @@
  */
 package com.common;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.Writer;
 
 
 public class CharIO {

@@ -1,6 +1,6 @@
 package com.aboutstring;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class KMP_suanfa {
 

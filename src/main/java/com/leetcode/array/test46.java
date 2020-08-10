@@ -1,6 +1,9 @@
 package com.leetcode.array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by wangyue66 on 2017/11/20.

@@ -3,7 +3,8 @@
  */
 package com.sword2offer.test1;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Test6Add {

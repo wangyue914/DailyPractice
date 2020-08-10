@@ -3,7 +3,9 @@
  */
 package com.sword2offer.test5;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class test50 {
 

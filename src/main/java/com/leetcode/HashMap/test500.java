@@ -1,7 +1,10 @@
 package com.leetcode.HashMap;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Yue on 2017/6/17 0017.

@@ -1,4 +1,4 @@
-package com.wy.future;
+package com.future;
 
 import java.util.Random;
 import java.util.concurrent.*;

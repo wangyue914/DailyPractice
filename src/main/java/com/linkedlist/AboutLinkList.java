@@ -63,11 +63,28 @@ public class AboutLinkList {
         n1.next.next.next=new ListNode(4);
         n1.next.next.next.next=new ListNode(5);
         n1.next.next.next.next.next=new ListNode(6);
+
+        ListNode current = n1;
+        ListNode next = n1;
+        ListNode newHead = null;
+        while (next != null) {
+            next = current.next;
+            current.next = newHead;
+            newHead = current;
+            current = next;
+        }
+        while (newHead != null) {
+            System.out.print(newHead.val);
+            newHead = newHead.next;
+        }
+
+
+        /*
         ListNode head=lastK(n1,3);
         while(head!=null){
             System.out.println(head.val);
             head=head.next;
-        }
+        }*/
     }
 
 }

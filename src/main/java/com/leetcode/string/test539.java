@@ -1,6 +1,7 @@
 package com.leetcode.string;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Yue on 2017/6/10 0010.
